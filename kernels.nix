@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   kernel.python.bioenv = {
     enable = true;
+    python = "python312";
     displayName = "Bioenv python";
     extraPackages = ps: [
       ps.pandas
@@ -14,11 +15,15 @@
       ps.xgboost
       ps.statsmodels
     ];
+    #requiredRuntimePackages = [ pkgs.gcc ];
   };
 
   kernel.r.bioenv = {
     enable = true;
     displayName = "Bioenv R";
+    #rPackages = pkgs.rPackages;
+    #rWrapper = pkgs.rWrapper;
+    #requiredRuntimePackages = [ pkgs.gcc ];
     extraRPackages = ps: [
       # infrastructure
       ## lang
@@ -51,7 +56,7 @@
       ps.xopen
       ps.haven
       ps.feather
-      ps.nanoparquet
+      #ps.nanoparquet
       ps.jsonlite
       ## web data
       ps.rvest
@@ -70,30 +75,30 @@
       #ps.ggplot2
       ps.ggpubr
       ps.ggplotify
-      ggalluvial
-      ggstar
-      ggnewscale
-      ggdensity
-      ggside
-      ggsankeyfier
-      ggblend
-      ggh4x
-      gghalves
-      ggsignif
+      ps.ggalluvial
+      ps.ggstar
+      ps.ggnewscale
+      ps.ggdensity
+      ps.ggside
+      #ps.ggsankeyfier
+      #ps.ggblend
+      ps.ggh4x
+      ps.gghalves
+      ps.ggsignif
       ## tree
-      tidytree
-      ggtree
-      ggtreeExtra
+      ps.tidytree
+      ps.ggtree
+      ps.ggtreeExtra
       ## heatmap
-      ComplexHeatmap
-      circlize
+      ps.ComplexHeatmap
+      ps.circlize
       ## correlation
-      cowplot
+      ps.cowplot
       ## table summary
-      gtsummary
-      flextable
-      gt
-      gtExtras
+      ps.gtsummary
+      ps.flextable
+      ps.gt
+      ps.gtExtras
       ## color
       #microshades
 
@@ -108,7 +113,7 @@
       ## microbiome
       ps.vegan
       ps.DirichletMultinomial
-      ps.curatedMetagenomicData
+      #ps.curatedMetagenomicData
       ps.MicrobiotaProcess
       ps.MicrobiomeProfiler
       ps.Maaslin2
