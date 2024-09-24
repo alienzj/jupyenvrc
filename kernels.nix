@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   kernel.python.bioenv = {
     enable = true;
-    python = "python312";
+    python = "python311";
     displayName = "Bioenv python";
     extraPackages = ps: [
       ps.pandas
