@@ -14,16 +14,39 @@
     });
   in
   {
+    nixpkgs.config.allowBroken = true;
     # use them via `nix develop .#xxx` or `direnv allow`
     devShells = eachSystem ({pkgs, ...}: rec {
       default = bioenv;
       bioenv = pkgs.mkShell {
         packages = with pkgs; [
-          python312
-	  python312Packages.jupyterlab
-	  python312Packages.pandas
-	  python312Packages.numpy
-	  python312Packages.biopython
+          python311
+
+	  python311Packages.jupyterlab
+
+	  python311Packages.pandas
+	  python311Packages.polars
+	  python311Packages.numpy
+
+	  python311Packages.seaborn
+	  python311Packages.matplotlib
+	  python311Packages.plotnine
+
+	  python311Packages.scipy
+	  python311Packages.scikit-learn
+	  python311Packages.scikit-bio
+
+	  python311Packages.biopython
+
+	  python311Packages.lightgbm
+	  python311Packages.xgboost
+	  python311Packages.statsmodels
+
+	  python311Packages.jax
+          python311Packages.keras
+	  python311Packages.torch
+	  python311Packages.tensorflow
+	  python311Packages.tensorboard
         ];
 
 	#packages = [
